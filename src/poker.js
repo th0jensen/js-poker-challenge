@@ -1,16 +1,10 @@
-function winningPair () {
-
-}
+function winningPair() {}
 
 // Extension criteria
 
-function winningPairFromArray () {
+function winningPairFromArray() {}
 
-}
-
-function winning3CardHand () {
-
-}
+function winning3CardHand() {}
 
 module.exports = {
   winningPair,
