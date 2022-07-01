@@ -1,5 +1,19 @@
-class Poker {
-  // Write your implementation here
+function winningPair () {
+
 }
 
-module.exports = Poker
+// Extension criteria
+
+function winningPairFromArray () {
+
+}
+
+function winning3CardHand () {
+
+}
+
+module.exports = {
+  winningPair,
+  winningPairFromArray,
+  winning3CardHand
+}
