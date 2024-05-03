@@ -19,34 +19,41 @@ const POKER_POINTS = {
 // Calculate the total value of the hand
 function calculateHand(hand) {
   let handPoints = 0
+  // Iterate throughout the hand
   for (let i = 0; i <= hand.length; i++) {
+    // Assign the points of that letter
     const key = POKER_POINTS[hand[i]]
     if (key) {
+      // Add the points to the total tally
       handPoints += key
     }
   }
   return handPoints
 }
 
-// Check if there are any ties
-function hasDuplicates(array) {
-  // Create a hash table to store the values as we count
-  const valuesSoFar = Object.create(null)
-  // Iterate throughout the entire array
-  for (let i = 0; i < array.length; ++i) {
-    // Convert the hand into points
-    const value = calculateHand(array[i])
-    // Check if the value has already been counted
-    if (value in valuesSoFar) {
+// Check if there are any pairs
+function hasPair(hand) {
+  if (hand[0] === hand[1]) {
+    return true
+  } else {
+    return false
+  }
+}
+
+// Check if there are any three of a kinds
+function hasThreeOfAKind(hand) {
+  if (hand[0] === hand[1]) {
+    if (hand[1] === hand[2]) {
       return true
     }
-    valuesSoFar[value] = true
+  } else {
+    return false
   }
-  return false
 }
 
 module.exports = {
   POKER_POINTS,
   calculateHand,
-  hasDuplicates
+  hasPair,
+  hasThreeOfAKind
 }
