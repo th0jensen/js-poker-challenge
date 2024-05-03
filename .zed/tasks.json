@@ -1,0 +1,23 @@
+// Static tasks configuration.
+//
+// Example:
+[
+  {
+    "label": "npm test/main",
+    "command": "npm run test-main",
+    "args": [],
+    "use_new_terminal": false
+  },
+  {
+    "label": "npm test/extension1",
+    "command": "npm run test-extension1",
+    "args": [],
+    "use_new_terminal": false
+  },
+  {
+    "label": "npm test/extension2",
+    "command": "npm run test-extension2",
+    "args": [],
+    "use_new_terminal": false
+  }
+]
