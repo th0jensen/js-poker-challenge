@@ -2,19 +2,24 @@
 const { calculateHand, hasPair, hasThreeOfAKind } = require('./helper')
 
 function winningPair(firstHand, secondHand) {
-  // Store the hands in some easier to manage variables
-  const firstHandPoints = calculateHand(firstHand)
-  const secondHandPoints = calculateHand(secondHand)
-  // Exclude cases with the card 'Q'
-  if (firstHand.includes('Q')) {
-    return (firstHand = [])
-  }
-  // Compare both hands and return the winning value
-  if (firstHandPoints > secondHandPoints) {
+  // First check if both hands are pairs
+  if (hasPair(firstHand) && hasPair(secondHand)) {
+    if (calculateHand(firstHand) > calculateHand(secondHand)) {
+      // If firstHand has the most points, then that is the winner
+      return firstHand
+    } else if (calculateHand(firstHand) < calculateHand(secondHand)) {
+      // If secondHand has the most points, then that is the winner
+      return secondHand
+    }
+  } else if (hasPair(firstHand)) {
+    // If firstHand is the only pair, then that is the winner
     return firstHand
-  }
-  if (secondHandPoints > firstHandPoints) {
+  } else if (hasPair(secondHand)) {
+    // If secondHand is the only pair, then that is the winner
     return secondHand
+  } else {
+    // If there are no pairs return []
+    return (firstHand = [])
   }
 }
 
